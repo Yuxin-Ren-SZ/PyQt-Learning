@@ -18,6 +18,10 @@ class MainWindow(QMainWindow):
         widget.currentIndexChanged.connect(self.index_changed)
         widget.currentTextChanged.connect(self.text_changed)
 
+        widget.setEditable(True)
+        # widget.setInsertPolicy(QComboBox.InsertAlphabetically)
+        widget.setMaxCount(5)
+
         self.setCentralWidget(widget)
 
     def index_changed(self, i):
