@@ -5,7 +5,9 @@ from PyQt5.QtWidgets import (
     QMainWindow,
     QLabel,
     QToolBar,
+    QStatusBar,
 )
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -25,6 +27,8 @@ class MainWindow(QMainWindow):
         button_action.setStatusTip("this is button")
         button_action.triggered.connect(self.onToolBarClick)
         toolbar.addAction(button_action)
+
+        self.setStatusBar(QStatusBar(self))
 
     def onToolBarClick(self, s):
         print("click", s)
