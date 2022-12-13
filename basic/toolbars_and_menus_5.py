@@ -12,7 +12,6 @@ from PyQt5.QtWidgets import (
     QStatusBar,
 )
 
-
 basdedir = os.path.dirname(__file__)
 
 
@@ -28,6 +27,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(label)
 
         toolbar = QToolBar("Main Toolbar")
+        # toolbar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
         self.addToolBar(toolbar)
 
         button_action = QAction(
