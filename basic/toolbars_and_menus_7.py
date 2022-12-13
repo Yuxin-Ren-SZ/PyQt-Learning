@@ -2,7 +2,8 @@ import os
 import sys
 
 from PyQt5.QtCore import Qt, QSize
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QKeySequence
+# Notice that QKeySequence is in PyQt5.QtGui
 from PyQt5.QtWidgets import (
     QApplication,
     QAction,
@@ -42,6 +43,8 @@ class MainWindow(QMainWindow):
         button_action.setStatusTip("this is button")
         button_action.triggered.connect(self.onToolBarClick)
         button_action.setCheckable(True)
+        # Notice that QKeySequence is in PyQt5.QtGui
+        button_action.setShortcut(QKeySequence("Ctrl+p"))
         toolbar.addAction(button_action)
 
         toolbar.addSeparator()
