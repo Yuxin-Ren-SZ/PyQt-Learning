@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         button_action = QAction("Button", self)
         button_action.setStatusTip("this is button")
         button_action.triggered.connect(self.onToolBarClick)
+        button_action.setCheckable(True)
         toolbar.addAction(button_action)
 
         self.setStatusBar(QStatusBar(self))
