@@ -66,7 +66,10 @@ class MainWindow(QMainWindow):
         file_menu = menu.addMenu("&File")
         file_menu.addAction(button_action)
         file_menu.addSeparator()
-        file_menu.addAction(button_action2)
+        # file_menu.addAction(button_action2)
+
+        file_sub = file_menu.addMenu("Submenu")
+        file_sub.addAction(button_action2)
 
         self.setStatusBar(QStatusBar(self))
 
