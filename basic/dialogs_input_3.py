@@ -45,15 +45,15 @@ class MainWindow(QMainWindow):
     def get_int(self):
         title = "Enter an Integer"
         label = "Type your integer here"
-        value, ok = QInputDialog.getInt(
+        value, isInput = QInputDialog.getInt(
             self, title, label, value=0, min=-5, max=5, step=1
         )
-        print("Result:", ok, value)
+        print("Result:", isInput, value)
 
     def get_float(self):
         title = "Enter a float"
         label = "Type your float here"
-        my_float_value, ok = QInputDialog.getDouble(
+        my_float_value, isInput = QInputDialog.getDouble(
             self,
             title,
             label,
@@ -62,14 +62,14 @@ class MainWindow(QMainWindow):
             max=5.7,
             decimals=2,
         )
-        print("Result:", ok, my_float_value)
+        print("Result:", isInput, my_float_value)
 
     def get_str_from_list(self):
         title = "select a string"
         label = "/select a fruit from the list"
         items = ["apple", "pear", "orange", "grape"]
         initial_selection = 2
-        selected_str, ok = QInputDialog.getItem(
+        selected_str, isInput = QInputDialog.getItem(
             self,
             title,
             label,
@@ -77,7 +77,7 @@ class MainWindow(QMainWindow):
             current=initial_selection,
             editable=False
         )
-        print("Result:", ok, selected_str)
+        print("Result:", isInput, selected_str)
 
     def get_str(self):
         pass
