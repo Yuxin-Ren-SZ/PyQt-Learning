@@ -94,7 +94,14 @@ class MainWindow(QMainWindow):
         print("Result:", isInput, value)
 
     def get_text(self):
-        pass
+        title = "Enter text"
+        label = "Type your note here"
+        value, isInput = QInputDialog.getMultiLineText(
+            self,
+            title,
+            label
+        )
+        print("Result:", isInput, value)
 
 
 app = QApplication([])
