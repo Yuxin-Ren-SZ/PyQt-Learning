@@ -80,7 +80,18 @@ class MainWindow(QMainWindow):
         print("Result:", isInput, selected_str)
 
     def get_str(self):
-        pass
+        title = "Enter a string"
+        label = "Type your password"
+        text = "mypassword"
+        mode = QLineEdit.Password
+        value, isInput = QInputDialog.getText(
+            self,
+            title,
+            label,
+            mode,
+            text
+        )
+        print("Result:", isInput, value)
 
     def get_text(self):
         pass
