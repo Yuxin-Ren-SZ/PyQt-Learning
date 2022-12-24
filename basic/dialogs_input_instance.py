@@ -50,20 +50,55 @@ class MainWindow(QMainWindow):
         dialog.setIntMaximum(5)
         dialog.setIntStep(1)
 
-        isInput = dialog.exec()
-        print("Result:", isInput, dialog.intValue())
+        ok= dialog.exec()
+        print("Result:", ok, dialog.intValue())
 
     def get_a_float(self):
-        pass
+        dialog = QInputDialog(self)
+        dialog.setWindowTitle("Enter a float")
+        dialog.setLabelText("Type your float here")
+        dialog.setDoubleValue(0.1)
+        dialog.setDoubleMinimum(-5.3)
+        dialog.setDoubleMaximum(5.7)
+        dialog.setDoubleStep(1.4)
+        dialog.setDoubleDecimals(2)
+
+        ok = dialog.exec_()
+        print("Result:", ok, dialog.doubleValue())
 
     def get_a_str_from_a_list(self):
-        pass
+        dialog = QInputDialog(self)
+        dialog.setWindowTitle("Select a string")
+        dialog.setLabelText("Select a fruit from the list")
+        dialog.setComboBoxItems(["apple", "pear", "orange", "grape"])
+        dialog.setComboBoxEditable(False)
+        dialog.setTextValue("orange")
+
+        ok = dialog.exec_()
+        print("Result:", ok, dialog.textValue())
 
     def get_a_str(self):
-        pass
+        dialog = QInputDialog(self)
+        dialog.setWindowTitle("Enter a string")
+        dialog.setLabelText("Type your password")
+        dialog.setTextValue("my secret password")
+        dialog.setTextEchoMode(QLineEdit.Password)
+
+        ok = dialog.exec_()
+        print("Result:", ok, dialog.textValue())
 
     def get_text(self):
-        pass
+        dialog = QInputDialog(self)
+        dialog.setWindowTitle("Enter text")
+        dialog.setLabelText("Type your novel here")
+        dialog.setTextValue("Once upon a time...")
+        dialog.setOption(
+            QInputDialog.UsePlainTextEditForTextInput,
+            True,
+        )
+
+        ok = dialog.exec_()
+        print("Result:", ok, dialog.textValue())
 
 
 app = QApplication([])
