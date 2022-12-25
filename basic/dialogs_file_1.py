@@ -5,6 +5,13 @@ from PyQt5.QtWidgets import (
     QPushButton,
 )
 
+FILE_FILTERS = [
+    "Portable Network Graphics files (*.png)",
+    "Text files (*.txt)",
+    "Comma Separated Values (*.csv)",
+    "All files (*)",
+]
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -18,11 +25,14 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(button1)
 
     def get_filename(self):
-        filters = "Portable Network Graphics files (*.png);;Coma Separated Values (*.csv);;All files (*)"
+        initial_filter = FILE_FILTERS[3]
+        filters = ";;".join(FILE_FILTERS)
         print("Filters are:", filters)
+        print("Initial filter:", initial_filter)
         filename, selected_filter = QFileDialog.getOpenFileNames(
             self,
-            filter=filters
+            filter=filters,
+            initialFilter=initial_filter
         )
         print("Result:", filename, selected_filter)
 
