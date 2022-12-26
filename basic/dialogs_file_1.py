@@ -44,6 +44,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(container)
 
     def get_filename(self):
+        caption = ""  # Empty uses default caption.
+        initial_dir = ""  # Empty uses current folder.
         initial_filter = FILE_FILTERS[3]  # Select one from the list.
         filters = ";;".join(FILE_FILTERS)
         print("Filters are:", filters)
@@ -51,19 +53,56 @@ class MainWindow(QMainWindow):
 
         filename, selected_filter = QFileDialog.getOpenFileName(
             self,
+            caption=caption,
+            directory=initial_dir,
             filter=filters,
             initialFilter=initial_filter,
         )
         print("Result:", filename, selected_filter)
 
     def get_filenames(self):
-        pass
+        caption = ""  # Empty uses default caption.
+        initial_dir = ""  # Empty uses current folder.
+        initial_filter = FILE_FILTERS[1]  # Select one from the list.
+        filters = ";;".join(FILE_FILTERS)
+        print("Filters are:", filters)
+        print("Initial filter:", initial_filter)
+
+        filenames, selected_filter = QFileDialog.getOpenFileNames(
+            self,
+            caption=caption,
+            directory=initial_dir,
+            filter=filters,
+            initialFilter=initial_filter,
+        )
+        print("Result:", filenames, selected_filter)
 
     def get_save_filename(self):
-        pass
+        caption = ""  # Empty uses default caption.
+        initial_dir = ""  # Empty uses current folder.
+        initial_filter = FILE_FILTERS[2]  # Select one from the list.
+        filters = ";;".join(FILE_FILTERS)
+        print("Filters are:", filters)
+        print("Initial filter:", initial_filter)
+
+        filename, selected_filter = QFileDialog.getSaveFileName(
+            self,
+            caption=caption,
+            directory=initial_dir,
+            filter=filters,
+            initialFilter=initial_filter,
+        )
+        print("Result:", filename, selected_filter)
 
     def get_folder(self):
-        pass
+        caption = ""  # Empty uses default caption.
+        initial_dir = ""  # Empty uses current folder.
+        folder_path = QFileDialog.getExistingDirectory(
+            self,
+            caption=caption,
+            directory=initial_dir,
+        )
+        print("Result:", folder_path)
 
 
 app = QApplication([])
