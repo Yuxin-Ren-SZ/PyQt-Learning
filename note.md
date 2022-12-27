@@ -12,3 +12,5 @@ PyQt Learning Note
 
 - [ ] Page 116
 		Organising Menues & Toolbars
+- [ ] Page 166
+		User-friendly Dialogs
