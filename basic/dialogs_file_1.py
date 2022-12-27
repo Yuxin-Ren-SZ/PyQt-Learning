@@ -1,7 +1,9 @@
+import os
 from PyQt5.QtWidgets import (
     QApplication,
     QFileDialog,
     QMainWindow,
+    QMessageBox,
     QPushButton,
     QVBoxLayout,
     QWidget,
@@ -60,6 +62,12 @@ class MainWindow(QMainWindow):
         )
         print("Result:", filename, selected_filter)
 
+        # tag::get_filename[]
+        if filename:
+            with open(filename, "r") as f:
+                file_contents = f.read()
+        # end::get_filename[]
+
     def get_filenames(self):
         caption = ""  # Empty uses default caption.
         initial_dir = ""  # Empty uses current folder.
@@ -68,7 +76,7 @@ class MainWindow(QMainWindow):
         print("Filters are:", filters)
         print("Initial filter:", initial_filter)
 
-        filenames, selected_filter = QFileDialog.getOpenFileNames(
+        (filenames, selected_filter,) = QFileDialog.getOpenFileNames(
             self,
             caption=caption,
             directory=initial_dir,
@@ -76,6 +84,11 @@ class MainWindow(QMainWindow):
             initialFilter=initial_filter,
         )
         print("Result:", filenames, selected_filter)
+
+        # tag::get_filenames[]
+        for filename in filenames:
+            with open(filename, "r") as f:
+                file_contents = f.read()
 
     def get_save_filename(self):
         caption = ""  # Empty uses default caption.
@@ -93,6 +106,23 @@ class MainWindow(QMainWindow):
             initialFilter=initial_filter,
         )
         print("Result:", filename, selected_filter)
+
+        if filename:
+            if os.path.exists(filename):
+                # Existing file, ask the user for confirmation.
+                write_confirmed = QMessageBox.question(
+                    self,
+                    "Overwrite file?",
+                    f"The file {filename} exists. Are you sure you want to overwrite it?",
+                )
+            else:
+                # File does not exist, always-confirmed.
+                write_confirmed = True
+
+            if write_confirmed:
+                with open(filename, "w") as f:
+                    file_content = "YOUR FILE CONTENT"
+                    f.write(file_content)
 
     def get_folder(self):
         caption = ""  # Empty uses default caption.
