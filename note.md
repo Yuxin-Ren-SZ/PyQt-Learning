@@ -10,7 +10,11 @@ PyQt Learning Note
 
 ### PyQt5
 
+- [ ] Event
+		skipped
 - [ ] Page 116
 		Organising Menues & Toolbars
 - [ ] Page 166
 		User-friendly Dialogs
+- [ ] Page 211
+		Aesthetics
