@@ -39,6 +39,10 @@
       <property name="text">
        <string>PushButton</string>
       </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/penguin.png</normaloff>:/icons/penguin.png</iconset>
+      </property>
      </widget>
     </item>
    </layout>
@@ -55,6 +59,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
